@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./index.css";
 import Employee from "./components/Employee";
+import { v4 as uuidv4 } from "uuid";
 function App() {
   const [role, setRole] = useState("dev");
   const empData = [
@@ -37,7 +38,12 @@ function App() {
   ];
   const employeeData = empData.map((emp, i) => {
     return (
-      <Employee key={i} name={emp.name} image={emp.image} role={emp.role} />
+      <Employee
+        key={uuidv4()}
+        name={emp.name}
+        image={emp.image}
+        role={emp.role}
+      />
     );
   });
   const ShowEmployees = true;
