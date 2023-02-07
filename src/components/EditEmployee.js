@@ -3,12 +3,13 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import EditEmployeeForm from "./EditEmployeeForm";
 
-function EditEmployee() {
+function EditEmployee(props) {
   const [show, setShow] = useState(false);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
+  const handleUpdate = () => {
+    //   props.updateEmployee()
+  };
   return (
     <>
       {/* <Button variant="primary" onClick={handleShow}>
@@ -25,15 +26,21 @@ function EditEmployee() {
           <Modal.Title>Modal heading</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <EditEmployeeForm />
+          <EditEmployeeForm
+            name={props.name}
+            role={props.role}
+            handleShow={handleShow}
+            handleClose={handleClose}
+            updateEmployee={props.updateEmployee}
+          />
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          {/* <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
           <Button variant="primary" onClick={handleClose}>
             Save Changes
-          </Button>
+          </Button> */}
         </Modal.Footer>
       </Modal>
     </>
